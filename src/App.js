@@ -24,6 +24,7 @@ class App extends React.Component {
       this.fetchImages();
     }
   }
+
   fetchImages = () => {
     const { searchValue, pageNumber } = this.state;
 
@@ -48,6 +49,7 @@ class App extends React.Component {
   };
 
   searchSubmit = searchValue => {
+    if (searchValue === this.state.searchValue) return;
     this.setState({
       searchValue,
       images: [],
@@ -66,7 +68,6 @@ class App extends React.Component {
         {status === 'resolved' && <ImageGallery images={images} />}
         {status === 'pending' && <Loader />}
         {imagesLength === 12 && status === 'resolved' && <Button onLoadMore={this.fetchImages} />}
-
         <ToastContainer />
       </div>
     );

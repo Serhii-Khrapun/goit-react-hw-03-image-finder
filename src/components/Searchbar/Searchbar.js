@@ -23,6 +23,7 @@ class Searchbar extends React.Component {
       searchValue: '',
     });
   };
+
   render() {
     return (
       <header className={styles.Searchbar}>
